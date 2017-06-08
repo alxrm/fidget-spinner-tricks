@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="rm.com.fidgetspinnertricks">
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+
+  <application
+      android:name=".FidgetApplication"
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+    <activity
+        android:name=".ui.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <meta-data
+        android:name="io.fabric.ApiKey"
+        android:value="6291e12ad6b50630902b4523420bfda9f743c2e6"/>
+  </application>
+
+</manifest>
