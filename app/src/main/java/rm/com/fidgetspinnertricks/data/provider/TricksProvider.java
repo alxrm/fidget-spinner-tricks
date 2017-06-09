@@ -53,6 +53,10 @@ public final class TricksProvider
   }
 
   @NonNull private List<Trick> tricksByLeague(String leagueName) {
-    return SQLite.select().from(Trick.class).where(Trick_Table.league.eq(leagueName)).queryList();
+    return SQLite.select()
+        .from(Trick.class)
+        .where(Trick_Table.league.eq(leagueName))
+        .orderBy(Trick_Table.level, true)
+        .queryList();
   }
 }
