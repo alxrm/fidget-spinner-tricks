@@ -3,7 +3,6 @@ package rm.com.fidgetspinnertricks.ui.fragment;
 import android.app.Activity;
 import android.app.Application;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -43,11 +42,6 @@ public abstract class BaseFragment extends Fragment {
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    //if (!isNested()) {
-    //  //noinspection WrongConstant
-    //  getActivity().setRequestedOrientation(orientation());
-    //}
-
     unbinder = ButterKnife.bind(this, view);
   }
 
@@ -80,10 +74,6 @@ public abstract class BaseFragment extends Fragment {
   abstract boolean hasBackButton();
 
   abstract boolean isNested();
-
-  protected int orientation() {
-    return ActivityInfo.SCREEN_ORIENTATION_USER;
-  }
 
   protected void unwrapArguments(@NonNull Bundle args) {
   }

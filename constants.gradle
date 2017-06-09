@@ -57,7 +57,7 @@ ext {
             butterknife        : "com.jakewharton:butterknife:$versions.butterknife",
             butterknifeCompiler: "com.jakewharton:butterknife-compiler:$versions.butterknife"]
 
-  glide = [library : "com.github.bumptech.glide:glide:$versions.glide",
+  glide = [lib : "com.github.bumptech.glide:glide:$versions.glide",
            compiler: "com.github.bumptech.glide:compiler:$versions.glide"]
 
   facebook = [stetho      : "com.facebook.stetho:stetho:$versions.stetho",

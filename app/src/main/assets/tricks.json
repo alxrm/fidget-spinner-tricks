@@ -1,0 +1,42 @@
+[
+  {
+    "id": "7ca0c2c4dcec4eeb83db04e5844aff59",
+    "title": "Simple hand transfer",
+    "level": 1,
+    "league": "beginner",
+    "video": "SimpleTransfer.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/SimpleTransfer.png"
+  },
+  {
+    "id": "c19cc04e89d24bedaf91b78f5509ef90",
+    "title": "Finger transfer",
+    "level": 2,
+    "league": "beginner",
+    "video": "FingerTransfer.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/FingerTransfer.png"
+  },
+  {
+    "id": "b0e04ae3975145f1a81f30cffb6b2baf",
+    "title": "Hand twist",
+    "level": 2,
+    "league": "beginner",
+    "video": "HandTwist.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/HandTwist.png"
+  },
+  {
+    "id": "484e71bf597443e9ab5b51fae1eb5902",
+    "title": "Around the back",
+    "level": 4,
+    "league": "beginner",
+    "video": "AroundTheBack.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/AroundTheBack.png"
+  },
+  {
+    "id": "1d58232a6e8d4ed98bacb2c74e396791",
+    "title": "Spinner swap",
+    "level": 3,
+    "league": "beginner",
+    "video": "SpinnerSwap.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/SpinnerSwap.png"
+  }
+]

@@ -10,8 +10,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.inject.Singleton;
 import rm.com.fidgetspinnertricks.FidgetApplication;
+import rm.com.fidgetspinnertricks.data.provider.TricksGsonProvider;
 import rm.com.fidgetspinnertricks.data.provider.TricksProvider;
-import rm.com.fidgetspinnertricks.ui.adapter.TricksAdapter;
 
 /**
  * Created by alex
@@ -23,10 +23,6 @@ import rm.com.fidgetspinnertricks.ui.adapter.TricksAdapter;
 
   public FidgetModule(FidgetApplication app) {
     this.app = app;
-  }
-
-  @Provides @Singleton TricksAdapter provideTricksAdapter() {
-    return new TricksAdapter();
   }
 
   @Provides @Singleton Handler provideMainThreadHandler() {
@@ -45,8 +41,17 @@ import rm.com.fidgetspinnertricks.ui.adapter.TricksAdapter;
     return Executors.newSingleThreadExecutor();
   }
 
-  @Provides @Singleton TricksProvider provideCatalog(ExecutorService executorService,
-      Handler mainThread, Gson gson, AssetManager assets) {
-    return new TricksProvider(executorService, mainThread, gson, assets);
+  @Provides @Singleton TricksGsonProvider provideTricksJsonParser(ExecutorService executorService,
+      Handler mainThread, Gson gson, AssetManager assets, @TricksJsonPath String tricksJsonPath) {
+    return new TricksGsonProvider(executorService, mainThread, gson, assets, tricksJsonPath);
+  }
+
+  @Provides @Singleton TricksProvider provideTricks(ExecutorService executorService,
+      Handler mainThread, TricksGsonProvider gsonProvider) {
+    return new TricksProvider(executorService, mainThread, gsonProvider);
+  }
+
+  @Provides @Singleton @TricksJsonPath String provideTricksJsonPath() {
+    return "tricks.json";
   }
 }

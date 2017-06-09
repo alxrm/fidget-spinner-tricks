@@ -28,7 +28,7 @@ public final class TricksPageFragment extends BaseFragment {
   @BindView(R.id.pager) ViewPager pager;
   @BindString(R.string.page_name_tricks) String title;
   @BindArray(R.array.trick_levels) String[] trickLevels;
-  @BindArray(R.array.trick_paths) String[] trickPaths;
+  @BindArray(R.array.trick_leagues) String[] trickLeagues;
   @BindColor(R.color.color_accent) int selectedColor;
 
   private TabLayout tabs;
@@ -89,8 +89,8 @@ public final class TricksPageFragment extends BaseFragment {
 
   @NonNull private BasePagerAdapter getSectionsPagerAdapter() {
     final List<BaseFragment> pages =
-        Arrays.<BaseFragment>asList(TricksListFragment.newInstance(trickPaths[0]),
-            TricksListFragment.newInstance(trickPaths[1]));
+        Arrays.<BaseFragment>asList(TricksListFragment.newInstance(trickLeagues[0]),
+            TricksListFragment.newInstance(trickLeagues[1]));
 
     return new BasePagerAdapter(getChildFragmentManager(), pages);
   }

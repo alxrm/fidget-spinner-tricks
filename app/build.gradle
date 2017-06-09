@@ -30,7 +30,6 @@ dependencies {
 
   annotationProcessor square.butterknifeCompiler
   annotationProcessor square.daggerCompiler
-  annotationProcessor glide.compiler
   annotationProcessor dbflow.compiler
 
   compile supportDeps.appCompat
@@ -41,9 +40,13 @@ dependencies {
   compile square.butterknife
   compile square.dagger
 
-  compile glide.library
+  compile dbflow.core
+  compile dbflow.lib
+
+  compile glide.lib
 
   compile 'com.github.techery:properratingbar:0.0.5'
+  compile 'com.yqritc:android-scalablevideoview:1.0.4'
   compile 'com.google.code.gson:gson:2.8.0'
 
   // analytics

@@ -7,5 +7,5 @@ import android.support.annotation.NonNull;
  */
 
 public interface ProviderListener<T> {
-  void onProvide(@NonNull T payload);
+  void onProviderResult(@NonNull T payload);
 }
