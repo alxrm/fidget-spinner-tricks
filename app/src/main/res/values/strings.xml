@@ -1,32 +1,15 @@
 <resources>
   <string name="app_name">Трюки со спиннером</string>
   <string name="page_name_tricks">Трюки</string>
-  <string name="page_name_notes">Заметки</string>
-  <string name="page_name_settings">Настройки</string>
-  <string name="page_name_student_create">Добавить студента</string>
-  <string name="page_name_note_page">Заметка</string>
-  <string name="ask_positive">Да</string>
-  <string name="ask_negative">Нет</string>
-  <string name="item_note_noname">Без названия</string>
-  <string name="student_birthday_event">%1$s %2$s —  день рождения</string>
-  <string name="message_birthday_ignored">День рождения не будет записан в календарь</string>
-  <string name="message_note_no_text">У заметки должен быть текст</string>
-  <string name="message_note_ignored">Уведомление заметки не будет записано в календарь</string>
-  <string name="ask_deassign_student">Отменить привязку к студенту?</string>
-  <string name="ask_deassign_date">Сбросить дату уведомления?</string>
-  <string name="message_form_not_correct">Не все обязательные поля заполнены</string>
-  <string name="note_event_title_stub">Напоминание о заметке</string>
+  <string name="trick_done_msg">Изучен</string>
+  <string name="trick_mark_done_msg">Пометить как изученный</string>
+  <string name="share">Поделиться</string>
+  <string name="touch_to_pause">Нажми на видео чтобы остановить</string>
+  <string name="item_trick_level">Сложность:</string>
+  <string name="message_share">Теперь знаю новый трюк со спиннером \"%1$s\", из этого приложения: LINK</string>
   <string name="message_content_empty">Список пуст</string>
-  <string name="message_permission_needed">Нужно разрешение, чтобы выполнить действие</string>
-  <string name="ask_delete_old_notes">Удалить старые заметки?</string>
-  <string name="page_name_picker">Выбрать студента</string>
-  <string name="settings_clear_old_notes_description">Удалятся только заметки с привязкой к дате, если дата прошедшая, то заметка будет удалена.</string>
-  <string name="settings_clear_old_notes_title">Очистить устаревшие заметки</string>
-  <string name="settings_block_title_data">Данные</string>
-  <string name="settings_block_title_notifications">Уведомления</string>
-  <string name="settings_title_notifications_notes">О заметках</string>
-  <string name="settings_title_notifications_birthday">О днях рождения</string>
-  <string name="page_name_student_edit">Изменить студента</string>
+  <string name="ask_negative">Позже</string>
+  <string name="ask_positive">Да</string>
   <string-array name="trick_levels">
     <item>Новичок</item>
     <item>Про</item>

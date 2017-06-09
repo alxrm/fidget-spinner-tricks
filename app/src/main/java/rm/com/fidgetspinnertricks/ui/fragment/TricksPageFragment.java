@@ -25,11 +25,12 @@ import rm.com.fidgetspinnertricks.util.Preconditions;
 
 public final class TricksPageFragment extends BaseFragment {
 
-  @BindView(R.id.pager) ViewPager pager;
   @BindString(R.string.page_name_tricks) String title;
   @BindArray(R.array.trick_levels) String[] trickLevels;
   @BindArray(R.array.trick_leagues) String[] trickLeagues;
   @BindColor(R.color.color_accent) int selectedColor;
+
+  @BindView(R.id.pager) ViewPager pager;
 
   private TabLayout tabs;
 

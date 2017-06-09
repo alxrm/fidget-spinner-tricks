@@ -25,7 +25,7 @@
         android:id="@+id/item_trick_preview"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:background="@color/color_text_primary"
+        android:background="@color/color_primary_light"
         />
 
     <RelativeLayout
@@ -57,7 +57,7 @@
           android:layout_marginRight="4dp"
           android:layout_marginStart="16dp"
           android:gravity="center_vertical"
-          android:text="Сложность:"
+          android:text="@string/item_trick_level"
           android:textColor="@color/color_text_secondary"
           android:textSize="14sp"
           />

@@ -1,16 +1,17 @@
 package rm.com.fidgetspinnertricks.ui.holder;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
-import butterknife.OnClick;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import io.techery.properratingbar.ProperRatingBar;
 import rm.com.fidgetspinnertricks.R;
 import rm.com.fidgetspinnertricks.data.entity.Trick;
+import rm.com.fidgetspinnertricks.util.Intents;
 import rm.com.fidgetspinnertricks.util.Logger;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -24,6 +25,7 @@ import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
 public final class TrickHolder extends BaseHolder<Trick> {
 
   @BindView(R.id.item_trick_done) ImageView done;
+  @BindView(R.id.item_trick_share) ImageView share;
   @BindView(R.id.item_trick_level) ProperRatingBar level;
   @BindView(R.id.item_trick_preview) ImageView preview;
   @BindView(R.id.item_trick_title) TextView title;
@@ -57,6 +59,14 @@ public final class TrickHolder extends BaseHolder<Trick> {
       }
     });
 
+    share.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        final Context context = itemView.getContext();
+
+        Intents.share(context, context.getString(R.string.message_share, model.title));
+      }
+    });
+
     itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (clickListener != null) {
@@ -64,10 +74,6 @@ public final class TrickHolder extends BaseHolder<Trick> {
         }
       }
     });
-  }
-
-  @OnClick(R.id.item_trick_share) void onShare() {
-    Logger.d("Share!");
   }
 
   final public void setOnDoneListener(@NonNull OnDoneListener onDoneListener) {
