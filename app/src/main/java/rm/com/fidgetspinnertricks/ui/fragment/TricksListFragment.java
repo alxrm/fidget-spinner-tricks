@@ -12,6 +12,7 @@ import rm.com.fidgetspinnertricks.data.provider.ProviderListener;
 import rm.com.fidgetspinnertricks.data.provider.TricksProvider;
 import rm.com.fidgetspinnertricks.ui.adapter.TricksAdapter;
 import rm.com.fidgetspinnertricks.ui.holder.BaseHolder;
+import rm.com.fidgetspinnertricks.ui.holder.TrickHolder;
 import rm.com.fidgetspinnertricks.util.Preconditions;
 
 /**
@@ -19,7 +20,8 @@ import rm.com.fidgetspinnertricks.util.Preconditions;
  */
 
 public final class TricksListFragment extends BaseContentFragment
-    implements BaseHolder.OnClickListener<Trick>, ProviderListener<Pair<String, List<Trick>>> {
+    implements BaseHolder.OnClickListener<Trick>, ProviderListener<Pair<String, List<Trick>>>,
+    TrickHolder.OnDoneListener {
   private static final String KEY_LEAGUE = "KEY_LEAGUE";
 
   @Inject TricksProvider provider;
@@ -43,6 +45,7 @@ public final class TricksListFragment extends BaseContentFragment
 
     adapter = new TricksAdapter();
     adapter.setOnClickListener(this);
+    adapter.setOnDoneListener(this);
     content.setAdapter(adapter);
 
     provider.provide(league, this);
@@ -60,6 +63,13 @@ public final class TricksListFragment extends BaseContentFragment
 
   @Override public void onItemClick(@NonNull Trick item) {
     navigateTo(TrickFragment.newInstance(item));
+  }
+
+  @Override public void onDone(int position, @NonNull Trick item) {
+    item.learned = !item.learned;
+    item.save();
+
+    adapter.notifyItemChanged(position);
   }
 
   @Override public void onProviderResult(@NonNull Pair<String, List<Trick>> payload) {
@@ -86,4 +96,5 @@ public final class TricksListFragment extends BaseContentFragment
   @Override boolean isNested() {
     return true;
   }
+
 }

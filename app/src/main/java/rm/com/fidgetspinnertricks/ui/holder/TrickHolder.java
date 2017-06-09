@@ -23,11 +23,12 @@ import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
 
 public final class TrickHolder extends BaseHolder<Trick> {
 
-  //@BindView(R.id.item_trick_done) ImageView done;
-  //@BindView(R.id.item_trick_share) ImageView date;
+  @BindView(R.id.item_trick_done) ImageView done;
   @BindView(R.id.item_trick_level) ProperRatingBar level;
   @BindView(R.id.item_trick_preview) ImageView preview;
   @BindView(R.id.item_trick_title) TextView title;
+
+  private OnDoneListener doneListener;
 
   public TrickHolder(View itemView) {
     super(itemView);
@@ -46,6 +47,16 @@ public final class TrickHolder extends BaseHolder<Trick> {
         .transition(withCrossFade())
         .into(preview);
 
+    done.setImageResource(model.learned ? R.drawable.ic_done_24dp : R.drawable.ic_do_24dp);
+
+    done.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+        if (doneListener != null) {
+          doneListener.onDone(getAdapterPosition(), model);
+        }
+      }
+    });
+
     itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
         if (clickListener != null) {
@@ -57,5 +68,13 @@ public final class TrickHolder extends BaseHolder<Trick> {
 
   @OnClick(R.id.item_trick_share) void onShare() {
     Logger.d("Share!");
+  }
+
+  final public void setOnDoneListener(@NonNull OnDoneListener onDoneListener) {
+    this.doneListener = onDoneListener;
+  }
+
+  public interface OnDoneListener {
+    void onDone(int position, @NonNull Trick item);
   }
 }
