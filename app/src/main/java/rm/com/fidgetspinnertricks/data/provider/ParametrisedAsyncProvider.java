@@ -6,8 +6,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 
+@SuppressWarnings("WeakerAccess")
 abstract public class ParametrisedAsyncProvider<P, T> extends AbstractAsyncProvider<T> {
-  @NonNull final Queue<P> paramsQueue = new LinkedList<>();
+  protected final Queue<P> paramsQueue = new LinkedList<>();
 
   public ParametrisedAsyncProvider(@NonNull ExecutorService executor,
       @NonNull Handler mainThreadHook) {

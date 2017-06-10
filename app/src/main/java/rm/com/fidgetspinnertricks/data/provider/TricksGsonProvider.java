@@ -13,7 +13,7 @@ import rm.com.fidgetspinnertricks.data.entity.Trick;
  * Created by alex
  */
 
-public final class TricksGsonProvider extends GsonProvider<List<Trick>> {
+public final class TricksGsonProvider extends GsonAssetSyncProvider<List<Trick>> {
 
   public TricksGsonProvider(@NonNull ExecutorService executor, @NonNull Handler mainThreadHandler,
       @NonNull Gson gson, @NonNull AssetManager assets, @NonNull String path) {

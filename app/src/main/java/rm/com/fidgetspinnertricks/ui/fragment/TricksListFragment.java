@@ -2,11 +2,12 @@ package rm.com.fidgetspinnertricks.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Pair;
 import android.view.View;
+import java.util.Collections;
 import java.util.List;
 import javax.inject.Inject;
 import rm.com.fidgetspinnertricks.FidgetApplication;
+import rm.com.fidgetspinnertricks.data.entity.LeagueTricks;
 import rm.com.fidgetspinnertricks.data.entity.Trick;
 import rm.com.fidgetspinnertricks.data.provider.ProviderListener;
 import rm.com.fidgetspinnertricks.data.provider.TricksProvider;
@@ -20,7 +21,7 @@ import rm.com.fidgetspinnertricks.util.Preconditions;
  */
 
 public final class TricksListFragment extends BaseContentFragment
-    implements BaseHolder.OnClickListener<Trick>, ProviderListener<Pair<String, List<Trick>>>,
+    implements BaseHolder.OnClickListener<Trick>, ProviderListener<LeagueTricks>,
     TrickHolder.OnDoneListener {
   private static final String KEY_LEAGUE = "KEY_LEAGUE";
 
@@ -48,7 +49,7 @@ public final class TricksListFragment extends BaseContentFragment
     adapter.setOnDoneListener(this);
     content.setAdapter(adapter);
 
-    provider.provide(league, this);
+    provider.provide(league, LeagueTricks.of(league, Collections.<Trick>emptyList()), this);
   }
 
   @Override protected void injectDependencies(@NonNull FidgetApplication app) {
@@ -72,9 +73,9 @@ public final class TricksListFragment extends BaseContentFragment
     adapter.notifyItemChanged(position);
   }
 
-  @Override public void onProviderResult(@NonNull Pair<String, List<Trick>> payload) {
-    final String queryLeague = payload.first;
-    final List<Trick> tricks = payload.second;
+  @Override public void onProviderResult(@NonNull LeagueTricks payload) {
+    final String queryLeague = payload.league;
+    final List<Trick> tricks = payload.tricks;
 
     Preconditions.check(!queryLeague.isEmpty(),
         "For whatever reason we got unknown league, seem like a bug!");
@@ -96,5 +97,4 @@ public final class TricksListFragment extends BaseContentFragment
   @Override boolean isNested() {
     return true;
   }
-
 }
