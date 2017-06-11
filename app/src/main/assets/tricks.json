@@ -38,5 +38,45 @@
     "league": "beginner",
     "video": "SpinnerSwap.mp4",
     "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/beginner/SpinnerSwap.png"
+  },
+  {
+    "id": "a21edea386f3413997b8722a6e211d07",
+    "title": "Australian bounce",
+    "level": 3,
+    "league": "pro",
+    "video": "AustralianBounce.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/pro/AustralianBounce.png"
+  },
+  {
+    "id": "01f7c4c8df9e4b60b6b289e581ef73e0",
+    "title": "Bubble flip",
+    "level": 5,
+    "league": "pro",
+    "video": "BubbleFlip.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/pro/BubbleFlip.png"
+  },
+  {
+    "id": "e044682730e84a52a21a3d77eb4f7adf",
+    "title": "Lazer spin",
+    "level": 4,
+    "league": "pro",
+    "video": "LazerSpin.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/pro/LazerSpin.png"
+  },
+  {
+    "id": "ddaa65251aa2466e8330d831097f6320",
+    "title": "Plasma bounce",
+    "level": 3,
+    "league": "pro",
+    "video": "PlasmaBounce.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/pro/PlasmaBounce.png"
+  },
+  {
+    "id": "e0265dd5bd474ba19a63498875f4ff30",
+    "title": "Sunshine switch",
+    "level": 4,
+    "league": "pro",
+    "video": "SunshineSwitch.mp4",
+    "preview": "https://github.com/0zi/spinner-static/raw/master/spinner-static/pro/SunshineSwitch.png"
   }
 ]
