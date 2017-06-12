@@ -1,18 +1,18 @@
 <resources>
-  <string name="app_name">Трюки со спиннером</string>
-  <string name="page_name_tricks">Трюки</string>
-  <string name="trick_done_msg">Изучен</string>
-  <string name="trick_mark_done_msg">Пометить как изученный</string>
-  <string name="share">Поделиться</string>
-  <string name="touch_to_pause">Нажми на видео чтобы остановить</string>
-  <string name="item_trick_level">Сложность:</string>
-  <string name="message_share">Теперь знаю новый трюк со спиннером \"%1$s\", из этого приложения: LINK</string>
-  <string name="message_content_empty">Список пуст</string>
-  <string name="ask_negative">Позже</string>
-  <string name="ask_positive">Да</string>
+  <string name="app_name">Fidget Spinner tricks</string>
+  <string name="page_name_tricks">Tricks</string>
+  <string name="trick_done_msg">Learned</string>
+  <string name="trick_mark_done_msg">Mark as learned</string>
+  <string name="share">Share</string>
+  <string name="touch_to_pause">Tap the video to pause</string>
+  <string name="item_trick_level">Difficulty:</string>
+  <string name="message_share">Now I know this new Fidget Spinner trick \"%1$s\", from this app: LINK</string>
+  <string name="message_content_empty">Nothing to show you</string>
+  <string name="ask_negative">Later</string>
+  <string name="ask_positive">Sure</string>
   <string-array name="trick_levels">
-    <item>Новичок</item>
-    <item>Про</item>
+    <item>Beginner</item>
+    <item>Pro</item>
   </string-array>
   <string-array name="trick_leagues">
     <item>beginner</item>
