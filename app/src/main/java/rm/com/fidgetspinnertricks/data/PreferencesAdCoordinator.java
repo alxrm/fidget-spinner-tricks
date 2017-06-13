@@ -21,6 +21,8 @@ public final class PreferencesAdCoordinator implements AdCoordinator {
 
     this.preferences = preferences;
     this.editor = preferences.edit();
+
+    editor.putInt(AD_COUNTER_PREF_KEY, AD_COUNTER_DEFAULT_VALUE).apply();
   }
 
   @Override public void visited() {

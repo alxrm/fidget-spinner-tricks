@@ -6,7 +6,7 @@
   <string name="share">Share</string>
   <string name="touch_to_pause">Tap the video to pause</string>
   <string name="item_trick_level">Difficulty:</string>
-  <string name="message_share">Now I know this new Fidget Spinner trick \"%1$s\", from this app: LINK</string>
+  <string name="message_share">Now I know this new Fidget Spinner trick \"%1$s\", from this app: https://play.google.com/store/apps/details?id=rm.com.fidgetspinnertricks</string>
   <string name="message_content_empty">Nothing to show you</string>
   <string name="ask_negative">Later</string>
   <string name="ask_positive">Sure</string>

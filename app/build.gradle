@@ -10,8 +10,8 @@ android {
     applicationId "rm.com.fidgetspinnertricks"
     minSdkVersion minSdk
     targetSdkVersion targetSdk
-    versionCode 1
-    versionName "1.0"
+    versionCode 2
+    versionName "1.0.1"
   }
   buildTypes {
     all {
@@ -28,7 +28,7 @@ android {
       buildConfigField "String", "INTERSTITIAL_UNIT_ID", '"ca-app-pub-9399500762037590/1376973860"'
 
 
-      minifyEnabled true
+      minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }

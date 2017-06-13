@@ -71,11 +71,9 @@
           android:layout_toRightOf="@id/item_trick_level_label"
           app:prb_clickable="false"
           app:prb_defaultRating="4"
-          android:paddingTop="2dp"
-          android:paddingBottom="2dp"
           app:prb_tickNormalDrawable="@drawable/ic_star_24dp"
           app:prb_tickSelectedDrawable="@drawable/ic_star_selected_24dp"
-          app:prb_tickSpacing="-2dp"
+          app:prb_tickSpacing="0dp"
           app:prb_totalTicks="5"
           />
     </RelativeLayout>

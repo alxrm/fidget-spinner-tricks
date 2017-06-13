@@ -6,7 +6,7 @@
   <string name="share">Поделиться</string>
   <string name="touch_to_pause">Нажми на видео чтобы остановить</string>
   <string name="item_trick_level">Сложность:</string>
-  <string name="message_share">Теперь знаю новый трюк со спиннером \"%1$s\", из этого приложения: LINK</string>
+  <string name="message_share">Теперь знаю новый трюк со спиннером \"%1$s\", из этого приложения: https://play.google.com/store/apps/details?id=rm.com.fidgetspinnertricks</string>
   <string name="message_content_empty">Список пуст</string>
   <string name="ask_negative">Позже</string>
   <string name="ask_positive">Да</string>
