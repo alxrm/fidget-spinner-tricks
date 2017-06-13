@@ -11,13 +11,13 @@
       android:layout_height="wrap_content"
       >
 
-    <com.yqritc.scalablevideoview.ScalableVideoView
+    <rm.com.fidgetspinnertricks.ui.view.ScalableVideoView
         android:id="@+id/trick_preview"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_alignParentTop="true"
         android:background="@android:color/black"
-        app:scalableType="centerTop"
+        app:scalableType="fitCenter"
         />
 
     <TextView
@@ -55,10 +55,10 @@
 
         <ImageView
             android:id="@+id/trick_done_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_do_48dp"
+            android:src="@drawable/ic_do_48dp"
             />
 
 
@@ -89,10 +89,10 @@
           >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_share_48dp"
+            android:src="@drawable/ic_share_48dp"
             />
 
 

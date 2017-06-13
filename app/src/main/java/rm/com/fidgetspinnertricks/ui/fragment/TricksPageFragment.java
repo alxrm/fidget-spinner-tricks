@@ -12,8 +12,14 @@ import butterknife.BindArray;
 import butterknife.BindColor;
 import butterknife.BindString;
 import butterknife.BindView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import javax.inject.Inject;
+import rm.com.fidgetspinnertricks.FidgetApplication;
 import rm.com.fidgetspinnertricks.R;
 import rm.com.fidgetspinnertricks.ui.Navigator;
 import rm.com.fidgetspinnertricks.ui.adapter.BasePagerAdapter;
@@ -30,7 +36,11 @@ public final class TricksPageFragment extends BaseFragment {
   @BindArray(R.array.trick_leagues) String[] trickLeagues;
   @BindColor(R.color.color_accent) int selectedColor;
 
+  @BindView(R.id.ad_view) AdView banner;
   @BindView(R.id.pager) ViewPager pager;
+
+  @Inject ExecutorService executorService;
+  @Inject InterstitialAd interstitialAd;
 
   private TabLayout tabs;
 
@@ -54,11 +64,18 @@ public final class TricksPageFragment extends BaseFragment {
     tabs.setupWithViewPager(pager);
     setupTabTitles(tabs);
     toggleTabs(true);
+
+    loadAds();
   }
 
   @Override public void onDestroyView() {
     super.onDestroyView();
     toggleTabs(false);
+  }
+
+  @Override protected void injectDependencies(@NonNull FidgetApplication app) {
+    super.injectDependencies(app);
+    app.injector().inject(this);
   }
 
   @NonNull @Override String title() {
@@ -104,5 +121,10 @@ public final class TricksPageFragment extends BaseFragment {
         tab.setText(trickLevels[i]);
       }
     }
+  }
+
+  private void loadAds() {
+    interstitialAd.loadAd(new AdRequest.Builder().build());
+    banner.loadAd(new AdRequest.Builder().build());
   }
 }

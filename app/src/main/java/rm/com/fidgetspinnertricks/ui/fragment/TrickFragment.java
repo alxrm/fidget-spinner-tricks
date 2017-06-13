@@ -14,10 +14,14 @@ import android.widget.TextView;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.OnClick;
-import com.yqritc.scalablevideoview.ScalableVideoView;
+import com.google.android.gms.ads.InterstitialAd;
 import java.io.IOException;
+import javax.inject.Inject;
+import rm.com.fidgetspinnertricks.AdCoordinator;
+import rm.com.fidgetspinnertricks.FidgetApplication;
 import rm.com.fidgetspinnertricks.R;
 import rm.com.fidgetspinnertricks.data.entity.Trick;
+import rm.com.fidgetspinnertricks.ui.view.ScalableVideoView;
 import rm.com.fidgetspinnertricks.util.Intents;
 
 /**
@@ -35,6 +39,9 @@ public final class TrickFragment extends BaseFragment {
   @BindView(R.id.trick_done_icon) ImageView doneIcon;
   @BindView(R.id.trick_done_label) TextView doneLabel;
   @BindView(R.id.trick_share) LinearLayout share;
+
+  @Inject AdCoordinator adCoordinator;
+  @Inject InterstitialAd interstitialAd;
 
   private Trick trick;
 
@@ -56,15 +63,27 @@ public final class TrickFragment extends BaseFragment {
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-
     updateDoneIcon();
     initVideoView();
     startVideo();
+
+    if (interstitialAd.isLoaded()) {
+      if (adCoordinator.shouldShowTheAd()) {
+        interstitialAd.show();
+      }
+
+      adCoordinator.visited();
+    }
   }
 
   @Override protected void unwrapArguments(@NonNull Bundle args) {
     super.unwrapArguments(args);
     trick = args.getParcelable(KEY_TRICK);
+  }
+
+  @Override protected void injectDependencies(@NonNull FidgetApplication app) {
+    super.injectDependencies(app);
+    app.injector().inject(this);
   }
 
   @OnClick(R.id.trick_share) void onShare() {
@@ -90,8 +109,12 @@ public final class TrickFragment extends BaseFragment {
     return false;
   }
 
+  @Override protected void navigateBack() {
+    super.navigateBack();
+  }
+
   private void updateDoneIcon() {
-    doneIcon.setImageResource(trick.learned ? R.drawable.ic_done_48dp : R.drawable.ic_do_48dp);
+    doneIcon.setImageResource(trick.learned ? R.drawable.ic_done_24dp : R.drawable.ic_do_48dp);
     doneLabel.setText(trick.learned ? trickDone : trickMarkDone);
   }
 
@@ -101,7 +124,9 @@ public final class TrickFragment extends BaseFragment {
       @Override public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
           case MotionEvent.ACTION_DOWN:
-            videoView.pause();
+            if (videoView.isPlaying()) {
+              videoView.pause();
+            }
             return true;
           case MotionEvent.ACTION_UP:
             videoView.start();
@@ -116,9 +141,9 @@ public final class TrickFragment extends BaseFragment {
   private void startVideo() {
     try {
       videoView.setAssetData(trick.video);
-      videoView.setLooping(true);
       videoView.prepareAsync(new MediaPlayer.OnPreparedListener() {
         @Override public void onPrepared(MediaPlayer mp) {
+          videoView.setLooping(true);
           videoView.start();
         }
       });

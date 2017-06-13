@@ -12,11 +12,23 @@ android {
     targetSdkVersion targetSdk
     versionCode 1
     versionName "1.0"
-    vectorDrawables.useSupportLibrary = true
   }
   buildTypes {
+    all {
+      buildConfigField "String", 'ADMOB_APP_ID', '"ca-app-pub-9399500762037590~9039841465"'
+    }
+
+    debug {
+      resValue "string", "banner_unit_id", "ca-app-pub-3940256099942544/6300978111"
+      buildConfigField "String", "INTERSTITIAL_UNIT_ID", '"ca-app-pub-3940256099942544/1033173712"'
+    }
+
     release {
-      minifyEnabled false
+      resValue "string", "banner_unit_id", "ca-app-pub-9399500762037590/5909748268"
+      buildConfigField "String", "INTERSTITIAL_UNIT_ID", '"ca-app-pub-9399500762037590/1376973860"'
+
+
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
@@ -45,13 +57,16 @@ dependencies {
 
   compile glide.lib
 
-  compile 'com.github.techery:properratingbar:0.0.5'
-  compile 'com.yqritc:android-scalablevideoview:1.0.4'
-  compile 'com.google.code.gson:gson:2.8.0'
 
   // analytics
   compile("com.crashlytics.sdk.android:crashlytics:$versions.crashlytics@aar") {
     transitive = true;
   }
   compile("com.crashlytics.sdk.android:answers:$versions.answers@aar") { transitive = true; }
+  compile 'com.github.techery:properratingbar:0.0.5'
+  compile 'com.yqritc:android-scalablevideoview:1.0.4'
+  compile 'com.google.code.gson:gson:2.8.0'
+  compile 'com.google.firebase:firebase-ads:10.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

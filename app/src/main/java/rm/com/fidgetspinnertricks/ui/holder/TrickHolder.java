@@ -12,7 +12,6 @@ import io.techery.properratingbar.ProperRatingBar;
 import rm.com.fidgetspinnertricks.R;
 import rm.com.fidgetspinnertricks.data.entity.Trick;
 import rm.com.fidgetspinnertricks.util.Intents;
-import rm.com.fidgetspinnertricks.util.Logger;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 import static com.bumptech.glide.request.RequestOptions.centerCropTransform;
@@ -40,12 +39,11 @@ public final class TrickHolder extends BaseHolder<Trick> {
     title.setText(model.title);
     level.setRating(model.level);
 
-    Logger.d("Trick in holder: " + model.title);
-
     Glide.with(itemView.getContext())
         .load(model.preview)
         .apply(diskCacheStrategyOf(DiskCacheStrategy.DATA))
         .apply(centerCropTransform())
+        .thumbnail(0.3F)
         .transition(withCrossFade())
         .into(preview);
 

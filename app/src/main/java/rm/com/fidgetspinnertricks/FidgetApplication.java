@@ -2,6 +2,8 @@ package rm.com.fidgetspinnertricks;
 
 import android.app.Application;
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.core.CrashlyticsCore;
+import com.google.android.gms.ads.MobileAds;
 import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import io.fabric.sdk.android.Fabric;
@@ -19,7 +21,9 @@ public final class FidgetApplication extends Application {
 
   @Override public void onCreate() {
     super.onCreate();
-    Fabric.with(this, new Crashlytics());
+    MobileAds.initialize(this, BuildConfig.ADMOB_APP_ID);
+
+    initAnalytics();
 
     final FlowConfig databaseConfig =
         new FlowConfig.Builder(this).openDatabasesOnInit(true).build();
@@ -31,5 +35,12 @@ public final class FidgetApplication extends Application {
 
   public final FidgetComponent injector() {
     return component;
+  }
+
+  private void initAnalytics() {
+    final Crashlytics crashlyticsKit = new Crashlytics.Builder().core(
+        new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build()).build();
+
+    Fabric.with(this, crashlyticsKit);
   }
 }
